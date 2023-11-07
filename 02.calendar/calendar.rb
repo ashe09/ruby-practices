@@ -12,6 +12,17 @@ input_year = params["y"] ? params["y"] : today.year
 month = input_month.to_i
 year = input_year.to_i
 
+# 引数の数値範囲外の場合にエラーメッセージを表示し、処理を終了
+unless month.between?(1, 12)
+  puts "cal: 13 is neither a month number (1..12) nor a name"
+  return
+end
+
+unless year.between?(1, 9999)
+  puts "cal: year `10000' not in range 1..9999"
+  return
+end
+
 # 月初めの日・最後の日・月初めの日の曜日を取得
 first_day = Date.new(year, month, 1)
 last_day = Date.new(year, month, -1)
