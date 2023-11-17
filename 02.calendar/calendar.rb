@@ -19,24 +19,25 @@ end
 
 first_date = Date.new(year, month, 1)
 last_date = Date.new(year, month, -1)
-first_day_of_month = first_date.wday
+first_wday = first_date.wday
 
 puts ("#{month}月 #{year}").center(20)
 puts "日 月 火 水 木 金 土"
 
-print "   " * first_day_of_month
+print "   " * first_wday
 
 (first_date..last_date).each do |date|
   if date == today
     print "\e[30m\e[47m"
-    printf("%2s", date.day.to_s)
+    printf("%2s", date.day)
     print "\e[0m"
   else
-    printf("%2s", date.day.to_s)
+    printf("%2s", date.day)
   end
-  print " "
   if date.saturday?
     print "\n"
+  else
+    print " "
   end
 end
 puts "\n"
