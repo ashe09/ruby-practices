@@ -21,13 +21,9 @@ end
 point = 0
 10.times do |i|
   point += if frames[i][0] == 10
-             if frames[i + 1][0] == 10
-               10 + frames[i + 1].sum + frames[i + 2][0]
-             else
-               10 + frames[i + 1].sum
-             end
+             frames[i + 1].sum + frames[i + 2][0]
            elsif frames[i].sum == 10
-             10 + frames[i + 1][0]
+             frames[i + 1][0]
            else
              frames[i].sum
            end
