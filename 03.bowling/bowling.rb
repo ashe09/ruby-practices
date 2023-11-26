@@ -18,10 +18,10 @@ scores.each do |score|
 end
 
 frames = shots.each_slice(2).to_a
-frame_number = 10
+FRAME_NUMBER = 10
 point = 0
 
-frame_number.times do |i|
+FRAME_NUMBER.times do |i|
   point += if frames[i][0] == STRIKE_SCORE
              if frames[i + 1][0] == STRIKE_SCORE
                frames[i][0] + frames[i + 1].sum + frames[i + 2][0]
